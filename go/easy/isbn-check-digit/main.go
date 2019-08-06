@@ -19,9 +19,21 @@ func main() {
     
     for i := 0; i < n; i++ {
         scanner.Scan()
-        // ISBN := scanner.Text()
+        isbn := scanner.Text()
+        // isbn := scanner.Bytes()
+        ok := checkISBN(isbn)
+        println(ok)
     }
     
     // fmt.Fprintln(os.Stderr, "Debug messages...")
     fmt.Println("answer") // Write answer to stdout
+}
+
+// checkISBN checks if ISBN is correct
+func checkISBN(s string) bool {
+    if len(s) != 10 && len(s) != 13 {
+        return false
+    }
+
+    return true
 }
