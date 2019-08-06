@@ -1,2 +1,2 @@
-# codinGame
+# codinGameSolutions
 Solution de la plateforme CodinGame
