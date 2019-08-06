@@ -13,15 +13,15 @@ func main() {
     scanner := bufio.NewScanner(os.Stdin)
     scanner.Buffer(make([]byte, 1000000), 1000000)
 
-    var N int
+    var n int
     scanner.Scan()
-    fmt.Sscan(scanner.Text(),&N)
+    fmt.Sscan(scanner.Text(), &n)
     
-    for i := 0; i < N; i++ {
+    for i := 0; i < n; i++ {
         scanner.Scan()
-        //ISBN := scanner.Text()
+        // ISBN := scanner.Text()
     }
     
     // fmt.Fprintln(os.Stderr, "Debug messages...")
-    fmt.Println("answer")// Write answer to stdout
+    fmt.Println("answer") // Write answer to stdout
 }
