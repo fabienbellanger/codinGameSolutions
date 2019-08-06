@@ -19,8 +19,8 @@ func main() {
     
     for i := 0; i < n; i++ {
         scanner.Scan()
-        isbn := scanner.Text()
-        // isbn := scanner.Bytes()
+        // isbn := scanner.Text()
+        isbn := scanner.Bytes()
         ok := checkISBN(isbn)
         println(ok)
     }
@@ -30,10 +30,14 @@ func main() {
 }
 
 // checkISBN checks if ISBN is correct
-func checkISBN(s string) bool {
+func checkISBN(s []byte) bool {
+    // Width of string equals to 10 or 13
     if len(s) != 10 && len(s) != 13 {
         return false
     }
+
+    // String only have number
+    
 
     return true
 }
