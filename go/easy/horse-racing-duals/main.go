@@ -9,12 +9,28 @@ import (
  * the standard input according to the problem statement.
  **/
 
+/*
+
+OPTI
+----
+
+m := make(map[int]int, 0)
+pi...
+if gap <len(m) {
+	loop de pi - gap à pi + gap
+} else {
+	loop sur m
+}
+
+*/
+
+
 func main() {
     var n int
     fmt.Scan(&n)
 	
 	gap := 10000000
-	list := make([]int, 0)
+	list := make([]int, 0, n)
 	stop := false
 
     for i := 0; i < n; i++ {
@@ -22,9 +38,9 @@ func main() {
 		fmt.Scan(&pi)
 		
 		if !stop {
-			for _, v := range list {
+			for j, v := range list {
 				var g int
-
+				// fmt.Printf("%d - %d\n", i, j)
 				if pi >= v {
 					g = pi - v
 				} else {
@@ -33,12 +49,12 @@ func main() {
 
 				if g < gap {
 					gap = g
-					break
-				}
-			}
 
-			if gap == 1 {
-				stop = true
+					if gap == 1 {
+						stop = true
+						break
+					}
+				}
 			}
 
 			list = append(list, pi)
@@ -47,5 +63,5 @@ func main() {
     
 	// Output
 	// ------
-    fmt.Println(gap) // Write answer to stdout
+    fmt.Println(gap)
 }
