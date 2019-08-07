@@ -2,5 +2,6 @@
 Solution de la plateforme CodinGame
 
 ## Easy
-- ISBN check digit
-- Chevaux de course
+- [x] ISBN check digit
+- [x] Chevaux de course
+- [ ] Mars Lander - Episode 1
