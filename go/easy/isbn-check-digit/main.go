@@ -8,11 +8,6 @@ import (
     "strconv"
 )
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
-
 func main() {
     scanner := bufio.NewScanner(os.Stdin)
     scanner.Buffer(make([]byte, 1000000), 1000000)
@@ -25,7 +20,6 @@ func main() {
     
     for i := 0; i < n; i++ {
         scanner.Scan()
-        // isbn := scanner.Text()
         isbn := scanner.Bytes()
         ok := checkISBN(isbn)
         if !ok {

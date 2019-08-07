@@ -4,33 +4,12 @@ import (
 	"fmt"
 )
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
-
-/*
-
-OPTI
-----
-
-m := make(map[int]int, 0)
-pi...
-if gap <len(m) {
-	loop de pi - gap à pi + gap
-} else {
-	loop sur m
-}
-
-*/
-
-
 func main() {
     var n int
     fmt.Scan(&n)
 	
 	gap := 10000000
-	list := make([]int, 0, n)
+	list := make(map[int]int, 0)
 	stop := false
 
     for i := 0; i < n; i++ {
@@ -38,30 +17,45 @@ func main() {
 		fmt.Scan(&pi)
 		
 		if !stop {
-			for j, v := range list {
-				var g int
-				// fmt.Printf("%d - %d\n", i, j)
-				if pi >= v {
-					g = pi - v
-				} else {
-					g = v - pi
+			if gap < len(list) {
+				for i := pi - gap; i < pi + gap && !stop; i++ {
+					if _, ok := list[i]; ok {
+						updateGap(pi, i, &gap, &stop)
+					}
 				}
+			} else {
+				for k := range list {
+					updateGap(pi, k, &gap, &stop)
 
-				if g < gap {
-					gap = g
-
-					if gap == 1 {
-						stop = true
+					if stop {
 						break
 					}
 				}
 			}
 
-			list = append(list, pi)
+			list[pi] = 0
 		}
 	}
     
 	// Output
 	// ------
     fmt.Println(gap)
+}
+
+func updateGap(pi int, i int, gap *int, stop *bool) {
+	var g int
+
+	if pi >= i {
+		g = pi - i
+	} else {
+		g = i - pi
+	}
+	
+	if g < *gap {
+		*gap = g
+
+		if *gap == 1 {
+			*stop = true
+		}
+	}
 }
