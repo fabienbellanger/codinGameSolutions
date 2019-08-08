@@ -1,11 +1,14 @@
 package main
 
 import "fmt"
+import "os"
 
 func main() {
     // surfaceN: the number of points used to draw the surface of Mars.
     var surfaceN int
     fmt.Scan(&surfaceN)
+
+    const vSpeedMaxOK = 40
     
     for i := 0; i < surfaceN; i++ {
         // landX: X coordinate of a surface point. (0 to 6999)
@@ -15,18 +18,24 @@ func main() {
 	}
 	
     for {
-        // hSpeed: the horizontal speed (in m/s), can be negative.
-        // vSpeed: the vertical speed (in m/s), can be negative.
-        // fuel: the quantity of remaining fuel in liters.
-        // rotate: the rotation angle in degrees (-90 to 90).
-        // power: the thrust power (0 to 4).
+        // hSpeed:  the horizontal speed (in m/s), can be negative.
+        // vSpeed:  the vertical speed (in m/s), can be negative.
+        // fuel:    the quantity of remaining fuel in liters.
+        // rotate:  the rotation angle in degrees (-90 to 90).
+        // power:   the thrust power (0 to 4).
         var X, Y, hSpeed, vSpeed, fuel, rotate, power int
         fmt.Scan(&X, &Y, &hSpeed, &vSpeed, &fuel, &rotate, &power)
         
+        rotate = 0 // Pour l'instant
+        if vSpeed > -vSpeedMaxOK {
+            power = 3
+        } else {
+            power = 4
+        }
         
-        // fmt.Fprintln(os.Stderr, "Debug messages...")
+        fmt.Fprintln(os.Stderr, power)
         
         // 2 integers: rotate power. rotate is the desired rotation angle (should be 0 for level 1), power is the desired thrust power (0 to 4).
-        fmt.Println("0 3")
+        fmt.Printf("%d %d\n", rotate, power)
     }
 }
