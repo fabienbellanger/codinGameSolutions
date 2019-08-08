@@ -2,11 +2,15 @@ package main
 
 import (
 	"fmt"
+	"time"
+	"os"
 )
 
 func main() {
     var n int
-    fmt.Scan(&n)
+	fmt.Scan(&n)
+	
+	start := time.Now()
 	
 	gap := 10000000
 	list := make(map[int]int, 0)
@@ -18,7 +22,7 @@ func main() {
 		
 		if !stop {
 			if gap < len(list) {
-				for i := pi - gap; i < pi + gap && !stop; i++ {
+				for i := pi - gap - 1; i < (pi + gap) && !stop; i++ {
 					if _, ok := list[i]; ok {
 						updateGap(pi, i, &gap, &stop)
 					}
@@ -36,6 +40,9 @@ func main() {
 			list[pi] = 0
 		}
 	}
+
+	duration := time.Since(start)
+	fmt.Fprintln(os.Stderr, duration)
     
 	// Output
 	// ------
@@ -59,3 +66,27 @@ func updateGap(pi int, i int, gap *int, stop *bool) {
 		}
 	}
 }
+
+// package main
+
+// import "fmt"
+// import "sort"
+// import "math"
+
+// func main() {
+//     var N int
+//     fmt.Scan(&N)
+    
+//     var P = make([]int, N)
+    
+//     for i := 0; i < N; i++ {
+//         fmt.Scan(&P[i])
+//     }
+
+//     sort.Ints(P);
+//     min := float64(P[1] - P[0])
+//     for i := 0; i < N - 1; i++ {
+//     	min = math.Min(min, float64(P[i + 1] - P[i]));
+//     }
+//     fmt.Println(min);
+// }
