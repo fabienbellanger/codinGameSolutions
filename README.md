@@ -1,7 +1,10 @@
 # codinGameSolutions
-Solution de la plateforme CodinGame
+Solutions de la plateforme CodinGame
 
 ## Easy
 - [x] ISBN check digit
 - [x] Chevaux de course
-- [ ] Mars Lander - Episode 1
+- [x] Mars Lander - Episode 1
+- [x] MIME Type
+- [x] Rubgy Score
+- [ ] May the Triforce be with you!
