@@ -56,6 +56,8 @@ func main() {
                 // --------------
                 if j < ((2 * N - 1) - i) + (2 * i + 1) {
                     line += "*"
+                } else {
+                    break
                 }
             } else {
                 // Others triangles
