@@ -9,3 +9,4 @@ Solutions de la plateforme CodinGame
 - [x] Rubgy Score
 - [x] May the Triforce be with you!
 - [x] Chuck Norris
+- [ ] Défibrillateurs
