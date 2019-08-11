@@ -41,28 +41,30 @@ func main() {
 	var line string
 
 	for i := 0; i < 2*N; i++ {
-		if i == 0 {
-			line = "."
-		} else {
-			line = " "
-        }
+		line = ""
         
-        for j := 0; j < 4 * N - 1; j++ {
+        for j := 0; j < 2 * N + i; j++ {
             // fmt.Fprintf(os.Stderr, "%d x %d\n", i, j)
             if j < 2 * N - 1 - i {
                 line += " "
             } else if i < N {
                 // First triangle
                 // --------------
-                if j < ((2 * N - 1) - i) + (2 * i + 1) {
-                    line += "*"
-                } else {
-                    break
-                }
+                line += "*"
+                // if j < ((2 * N - 1) - i) + (2 * i + 1) {
+                //     line += "*"
+                // } else {
+                //     line += "o"
+                // }
             } else {
                 // Others triangles
                 // ----------------
+                line += "*"
             }
+        }
+
+        if i == 0 {
+            line = "." + line[1:]
         }
 
 		fmt.Println(line)
