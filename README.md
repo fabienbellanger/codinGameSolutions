@@ -8,3 +8,4 @@ Solutions de la plateforme CodinGame
 - [x] MIME Type
 - [x] Rubgy Score
 - [x] May the Triforce be with you!
+- [ ] Chuck Norris
