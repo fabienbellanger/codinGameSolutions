@@ -7,4 +7,4 @@ Solutions de la plateforme CodinGame
 - [x] Mars Lander - Episode 1
 - [x] MIME Type
 - [x] Rubgy Score
-- [ ] May the Triforce be with you!
+- [x] May the Triforce be with you!
