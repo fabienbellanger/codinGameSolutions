@@ -16,13 +16,17 @@ func main() {
     
     var H int
     scanner.Scan()
-    fmt.Sscan(scanner.Text(),&H)
+	fmt.Sscan(scanner.Text(),&H)
     
     scanner.Scan()
-    //T := scanner.Text()
+	text := scanner.Text()
+
+	// Alphabet en ASCII Art
+	letters := make([27][L * H]string)
+	
     for i := 0; i < H; i++ {
         scanner.Scan()
-        //ROW := scanner.Text()
+        row := scanner.Text()
     }
     
     // fmt.Fprintln(os.Stderr, "Debug messages...")
