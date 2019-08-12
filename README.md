@@ -10,4 +10,4 @@ Solutions de la plateforme CodinGame
 - [x] May the Triforce be with you!
 - [x] Chuck Norris
 - [x] Défibrillateurs
-- [ ] Happy Numbers
+- [x] Happy Numbers

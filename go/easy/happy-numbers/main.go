@@ -4,14 +4,11 @@ import (
 	"fmt"
 	"os"
 	"bufio"
-	"math"
 	"strconv"
 )
 
 const Happy = ":)"
-const Unhappay = ":("
-
-var unhappyNumbers = [8]int{4, 16, 20, 37, 42, 58, 89, 145}
+const Unhappy = ":("
 
 func main() {
     scanner := bufio.NewScanner(os.Stdin)
@@ -24,27 +21,30 @@ func main() {
     for i := 0; i < N; i++ {
         scanner.Scan()
 		x := scanner.Text()
-		n, _ := strconv.Atoi(x)
-		println(n, " => ", getSum(n, digitsNumber(n)))
-    }
-    
-    // fmt.Fprintln(os.Stderr, "Debug messages...")
-    fmt.Println("23 " + Happy)// Write answer to stdout
-}
-
-func digitsNumber(i int) int {
-	return int(math.Floor(math.Log10(float64(i)) / math.Log10(10.0))) + 1
-}
-
-func getSum(i int, n int) int {
-	s := 0
-	r := i
-
-	for j := n; j > 0; j-- {
-		s += (r / int(math.Pow10(j-1))) * (r / int(math.Pow10(j-1)))
 		
-		r = r % int(math.Pow10(j-1))
-	}
+		s := x
+		for {
+			s = getSum(s)
+			
+			if s == "1" {
+				fmt.Printf("%s %s\n", x, Happy)
+				break
+			} else if s == "4" || s == "16" || s == "20" || s == "37" || s == "42" || s == "58" || s == "89" || s == "145" {
+				fmt.Printf("%s %s\n", x, Unhappy)
+				break
+			}
+		}
+    }
+}
 
-	return s
+func getSum(s string) string {
+	var sum2 int
+
+	for _, value := range s {
+		num, _ := strconv.Atoi(string(value))
+		
+		sum2 += int(num) * int(num)
+	}
+	
+	return strconv.Itoa(sum2)
 }
