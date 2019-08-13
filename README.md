@@ -13,3 +13,4 @@ Solutions de la plateforme CodinGame
 - [x] Happy Numbers
 - [x] ASCII Art
 - [x] Detective Pikaptcha EP1
+- [ ] Detective Pikaptcha EP2
