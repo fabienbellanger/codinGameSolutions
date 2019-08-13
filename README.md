@@ -11,4 +11,5 @@ Solutions de la plateforme CodinGame
 - [x] Chuck Norris
 - [x] Défibrillateurs
 - [x] Happy Numbers
-- [ ] ASCII Art
+- [x] ASCII Art
+- [x] Detective Pikaptcha EP1
