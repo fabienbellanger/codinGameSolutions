@@ -1,7 +1,9 @@
 # codinGameSolutions
 Solutions de la plateforme CodinGame
 
-## Easy
+## Go
+
+### Easy
 - [x] ISBN check digit
 - [x] Chevaux de course
 - [x] Mars Lander - Episode 1
