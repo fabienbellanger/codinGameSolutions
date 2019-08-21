@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "os"
+    "strconv"
 )
 
 func main() {
@@ -10,13 +11,12 @@ func main() {
     fmt.Scan(&width, &height)
     
     grid := make([][]byte, 0)
-    
     startX := 0
     startY := 0
     for i := 0; i < height; i++ {
         var line string
 		fmt.Scan(&line)
-		grid = append(grid, []byte(line))
+        grid = append(grid, []byte(line))
     }
 
     // Position de départ
@@ -41,7 +41,7 @@ func main() {
 
     fmt.Fprintf(os.Stderr, "        Start X: %d\n", startX)
     fmt.Fprintf(os.Stderr, "        Start Y: %d\n", startY)
-    fmt.Fprintf(os.Stderr, "Start direction: %s\n", string(grid[startX][startY]))
+    fmt.Fprintf(os.Stderr, "Start direction: %s\n", string(grid[startY][startX]))
     fmt.Fprintf(os.Stderr, "      Wall side: %s\n\n", side)
 
     // Priorités des directions
@@ -58,11 +58,11 @@ func main() {
     directionsPriorities["R"]['>'] = []byte("v>^<")
     directionsPriorities["R"]['<'] = []byte("^<v>")
     
-    n := 0
     stop := false
     x := startX
     y := startY
-    d := grid[startX][startY]
+    d := grid[y][x]
+    grid[y][x] = '0'
     for ; !stop; {
         for _, v := range directionsPriorities[side][d] {
             if isMovePossible(x, y, width, height, v, grid) {
@@ -78,11 +78,12 @@ func main() {
 
                 d = v
 
-                // TODO: Incrémenter le compteur de passage
+                // Incrémenter le compteur de passage
+                // ----------------------------------
+                i, _ := strconv.Atoi(string(grid[y][x]))
+                grid[y][x] = strconv.Itoa(i + 1)[0]
 
                 break
-            } else {
-                // TODO ?
             }
         }
 
@@ -91,17 +92,11 @@ func main() {
         if x == startX && y == startY {
             stop = true
         }
-
-        // TODO: A supprimer
-        if n > 200 {
-            break
-        }
-
-        n++
-
-        fmt.Fprintf(os.Stderr, " => (%d, %d) | d: %s\n", x, y, string(d))
     }
-    fmt.Fprintf(os.Stderr, "\n => Trouvé en %d\n\n", n)
+    
+    for i := 0; i < len(grid); i++ {
+        fmt.Println(string(grid[i]))
+    }
 }
 
 func isMovePossible(x, y, w, h int, d byte, grid [][]byte) bool {
