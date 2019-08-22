@@ -4,6 +4,7 @@ Solutions de la plateforme CodinGame
 ## Go
 
 ### Easy
+-  [x] Températures
 -  [x] ISBN check digit
 -  [x] Chevaux de course
 -  [x] Mars Lander - Episode 1
