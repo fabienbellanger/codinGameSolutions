@@ -20,8 +20,8 @@ func main() {
     var N int
     fmt.Scan(&N)
 
-    results := make([]int, N)
-    fmt.Fprintf(os.Stderr, "%v\n", results)
+    results := make(map[int]int)
+    fmt.Fprintf(os.Stderr, "%v - %t\n", results, isMapFull(results, N))
     
     for i := 0; i < N; i++ {
         var operation, arg1, arg2 string
@@ -31,6 +31,10 @@ func main() {
     for i := 0; i < N; i++ {
         
         // fmt.Fprintln(os.Stderr, "Debug messages...")
-        fmt.Println("1")// Write answer to stdout
+        fmt.Println("1")
     }
+}
+
+func isMapFull(results map[int]int, size int) bool {
+    return len(results) == size
 }
