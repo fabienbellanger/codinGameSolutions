@@ -18,4 +18,4 @@ Solutions de la plateforme CodinGame
 -  [x] Detective Pikaptcha EP1
 -  [x] Detective Pikaptcha EP2
 -  [x] 1D Spreadsheet
--  [ ] Une contribution de Plopx
+-  [x] Expressions parenthésées
