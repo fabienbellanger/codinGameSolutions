@@ -17,4 +17,4 @@ Solutions de la plateforme CodinGame
 -  [x] ASCII Art
 -  [x] Detective Pikaptcha EP1
 -  [x] Detective Pikaptcha EP2
--  [ ] 1D Spreadsheet
+-  [x] 1D Spreadsheet
