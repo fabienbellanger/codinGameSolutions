@@ -1,17 +1,7 @@
-15
+5
 3
-X X X X X X X X X X X X C X X
-X X X X X X X X X X X X C X X
-X X X X X X X X X C X X X X X
-X X X X X C X X X X X X X X X
-X X X X C X X X X X X X X X X
-C X X X X X X X C X X C X X X
-X X X X X C X X X X X X X X C
-X C X X X X X X X X X X X X X
-X X X X X X X C X C X X X X X
-X X X X X X X X X X X X C X X
-X X X X X X X X X X X X X X X
-X X C X C X X X X X X X X X C
-X X X X X X C X X X C X X X X
-X C X X X X X X X X X X X X X
-X X X X X X X X X X X X X X X
+C X X X C
+X X X X X
+X X X X X
+X X X X X
+C X X X C

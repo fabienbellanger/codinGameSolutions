@@ -21,11 +21,6 @@ func main() {
 
 	grid := make([][]int, N, N)
 
-	/*
-		N = 15
-		Solution = 14
-	*/
-
 	for i := 0; i < N; i++ {
 		scanner.Scan()
 		line := scanner.Text()
@@ -44,43 +39,43 @@ func main() {
 		for x := 0; x < N; x++ {
 			if grid[y][x] == L {
 				for k := 1; k < L; k++ {
-					if y-k >= 0 && y-k != L {
-						grid[y-k][x] = L - k
+					// First line
+					// ----------
+					for l := x - k; l <= x+k; l++ {
+						if y-k >= 0 && l >= 0 && l < N && grid[y-k][l] < L-k {
+							grid[y-k][l] = L - k
+						}
 					}
 
-					if y+k < N && y+k != L {
-						grid[y+k][x] = L - k
+					// Second line
+					// -----------
+					for l := y - k + 1; l <= y+k; l++ {
+						if x+k < N && l >= 0 && l < N && grid[l][x+k] < L-k {
+							grid[l][x+k] = L - k
+						}
 					}
 
-					if x-k >= 0 && x-k != L {
-						grid[y][x-k] = L - k
+					// Third line
+					// ----------
+					for l := x - k; l <= x+k-1; l++ {
+						if y+k < N && l >= 0 && l < N && grid[y+k][l] < L-k {
+							grid[y+k][l] = L - k
+						}
 					}
 
-					if x+k < N && x+k != L {
-						grid[y][x+k] = L - k
-					}
-
-					if y-k >= 0 && x-k >= 0 && y-k != L && x-k != L {
-						grid[y-k][x-k] = L - k
-					}
-
-					if y+k < N && x+k < N && y+k != L && x+k != L {
-						grid[y+k][x+k] = L - k
-					}
-
-					if y+k < N && x-k >= 0 && y+k != L && x-k != L {
-						grid[y+k][x-k] = L - k
-					}
-
-					if y+k < N && x+k < N && y+k != L && x+k != L {
-						grid[y+k][x+k] = L - k
+					// Last line
+					// ---------
+					for l := y - k + 1; l <= y+k-1; l++ {
+						if x-k >= 0 && l >= 0 && l < N && grid[l][x-k] < L-k {
+							grid[l][x-k] = L - k
+						}
 					}
 				}
 			}
 		}
 	}
 
-	printGrid(grid)
+	// printGrid(grid)
 
 	fmt.Println(getZeroNumbers(grid))
 }

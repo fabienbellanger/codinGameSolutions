@@ -19,4 +19,4 @@ Solutions de la plateforme CodinGame
 -  [x] Detective Pikaptcha EP2
 -  [x] 1D Spreadsheet
 -  [x] Expressions parenthésées
--  [ ] Lumen
+-  [x] Lumen
