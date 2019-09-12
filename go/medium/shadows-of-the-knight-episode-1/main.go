@@ -43,6 +43,12 @@ func main() {
 		} else if bombDir == "D" {
 			grid.Y1 = y + 1
 			y = (y + 1 + grid.Y2) / 2
+		} else if bombDir == "R" {
+			grid.X1 = x + 1
+			x = (x + 1 + grid.X2) / 2
+		} else if bombDir == "L" {
+			grid.X2 = x - 1
+			x = (x - 1 + grid.X1) / 2
 		}
 
 		fmt.Fprintf(os.Stderr, "grid: %v)\n", grid)
