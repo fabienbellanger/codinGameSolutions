@@ -24,3 +24,6 @@ Solutions de la plateforme CodinGame
 -  [x] The River I.
 -  [x] The River II.
 -  [x] Ghost Legs
+
+### Medium
+-  [ ] Shadows of the Knight - Episode 1
