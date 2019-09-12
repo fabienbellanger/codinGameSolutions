@@ -23,3 +23,4 @@ Solutions de la plateforme CodinGame
 -  [x] Encryption/Decryption of Enigma Machine
 -  [x] The River I.
 -  [x] The River II.
+-  [x] Ghost Legs
