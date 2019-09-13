@@ -25,6 +25,7 @@ Solutions de la plateforme CodinGame
 -  [x] The River II.
 -  [x] Ghost Legs
 -  [x] Bank Robbers
+-  [ ] Plague, Jr
 
 ### Medium
 -  [x] Shadows of the Knight - Episode 1
