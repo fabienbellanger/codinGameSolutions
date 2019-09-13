@@ -26,4 +26,4 @@ Solutions de la plateforme CodinGame
 -  [x] Ghost Legs
 
 ### Medium
--  [ ] Shadows of the Knight - Episode 1
+-  [x] Shadows of the Knight - Episode 1
