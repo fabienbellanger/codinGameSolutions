@@ -25,7 +25,14 @@ Solutions de la plateforme CodinGame
 -  [x] The River II.
 -  [x] Ghost Legs
 -  [x] Bank Robbers
+-  [x] Unit Fractions
 -  [ ] Plague, Jr
+-  [ ] Rectangle Partition
 
 ### Medium
 -  [x] Shadows of the Knight - Episode 1
+
+## Rust
+
+### Easy
+-  [x] Unit Fractions
