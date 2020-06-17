@@ -47,8 +47,9 @@ fn main() {
             let mut k = j + 1;
             while k < (count_x + 2) {
                 let mut l = i + 1;
+                let m = x_list[k] - x_list[j];
                 while l < (count_y + 2) {
-                    if (x_list[k] - x_list[j]) == (y_list[l] - y_list[i]) { // if = goulot d'étranglement !!
+                    if m == (y_list[l] - y_list[i]) { // if = goulot d'étranglement !!
                         squares += 1;
                     }
 
@@ -71,13 +72,13 @@ fn main() {
     //         let mut j_index = 0;
     //         for j in x_list.iter() {
     //             if j < &w {
-    //                 let x_partial: Vec<i32> = Vec::from(&x_list[j_index + 1..]);
+    //                 let x_partial = Vec::from(&x_list[j_index + 1..]);
 
     //                 for k in x_partial.iter() {
-    //                     let y_partial: Vec<i32> = Vec::from(&y_list[i_index + 1..]);
-
+    //                     let y_partial = Vec::from(&y_list[i_index + 1..]);
+                        
     //                     for l in y_partial.iter() {
-    //                         if (k - j) == (l - i) {
+    //                         if k - j == l - i {
     //                             squares += 1;
     //                         }
     //                     }
