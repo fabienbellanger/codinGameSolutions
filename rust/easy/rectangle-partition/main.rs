@@ -1,99 +1,74 @@
 use std::io;
+use std::collections::HashMap;
 
 macro_rules! parse_input {
     ($x:expr, $t:ident) => ($x.trim().parse::<$t>().unwrap())
 }
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
+// Calculate segments from a point
+fn calculate_segments(final_list: &mut HashMap<i32, u32>, list: &Vec<i32>, point: i32) {
+    for x in list {
+        let size: i32 = (x - point).abs();
+
+        let key = final_list.entry(size).or_insert(0);
+        *key += 1;
+    }
+}
+
+// Calculate squares number
+fn calculate_squares(main: &HashMap<i32, u32>, second: &HashMap<i32, u32>) -> u32 {
+    let mut squares = 0u32;
+
+    for (size, n) in main {
+        if let Some(m) = second.get(size) {
+            squares += n * m;
+        }
+    }
+
+    squares
+}
+
 fn main() {
     let mut input_line = String::new();
     io::stdin().read_line(&mut input_line).unwrap();
     let inputs = input_line.split(" ").collect::<Vec<_>>();
     let w = parse_input!(inputs[0], i32);
     let h = parse_input!(inputs[1], i32);
-    let count_x = parse_input!(inputs[2], usize);
-    let count_y = parse_input!(inputs[3], usize);
 
     let mut inputs = String::new();
-    let mut x_list: Vec<i32> = vec!(0);
+    let mut x_list: Vec<i32> = vec![0, w];
+    let mut final_x_list: HashMap<i32, u32> = HashMap::new();
+    final_x_list.insert(w, 1);
     io::stdin().read_line(&mut inputs).unwrap();
     for i in inputs.split_whitespace() {
         let x = parse_input!(i, i32);
+        calculate_segments(&mut final_x_list, &x_list, x);
         x_list.push(x);
-    }
-    if !x_list.contains(&w) {
-        x_list.push(w);
     }
 
     let mut inputs = String::new();
-    let mut y_list: Vec<i32> = vec!(0);
+    let mut y_list: Vec<i32> = vec![0, h];
+    let mut final_y_list: HashMap<i32, u32> = HashMap::new();
+    final_y_list.insert(h, 1);
     io::stdin().read_line(&mut inputs).unwrap();
     for i in inputs.split_whitespace() {
         let y = parse_input!(i, i32);
+        calculate_segments(&mut final_y_list, &y_list, y);
         y_list.push(y);
     }
-    if !y_list.contains(&h) {
-        y_list.push(h);
+
+    // Iterate on the smallest list
+    let main_list: HashMap<i32, u32>;
+    let second_list: HashMap<i32, u32>;
+    
+    if final_x_list.len() < final_y_list.len() {
+        main_list = final_x_list;
+        second_list = final_y_list;
+    } else {
+        main_list = final_y_list;
+        second_list = final_x_list;
     }
     
-    let mut i = 0;
-    let mut squares = 0;
-    while i < (count_y + 1) {
-        let mut j = 0;
-        while j < (count_x + 1) {
-            let mut k = j + 1;
-            while k < (count_x + 2) {
-                let mut l = i + 1;
-                let m = x_list[k] - x_list[j];
-                while l < (count_y + 2) {
-                    if m == (y_list[l] - y_list[i]) { // if = goulot d'étranglement !!
-                        squares += 1;
-                    }
-
-                    l += 1;
-                }
-
-                k += 1;
-            }
-
-            j += 1;
-        }
-
-        i += 1;
-    }
-
-    // let mut i_index = 0;
-    // let mut squares = 0;
-    // for i in y_list.iter() {
-    //     if i < &h {
-    //         let mut j_index = 0;
-    //         for j in x_list.iter() {
-    //             if j < &w {
-    //                 let x_partial = Vec::from(&x_list[j_index + 1..]);
-
-    //                 for k in x_partial.iter() {
-    //                     let y_partial = Vec::from(&y_list[i_index + 1..]);
-                        
-    //                     for l in y_partial.iter() {
-    //                         if k - j == l - i {
-    //                             squares += 1;
-    //                         }
-    //                     }
-    //                 }
-
-    //                 j_index += 1;
-    //             }
-    //         }
-
-    //         i_index += 1;
-    //     }
-    // }
-
+    let squares = calculate_squares(&main_list, &second_list);
     println!("{}", squares);
-
-    // Write an answer using println!("message...");
-    // To debug: eprintln!("Debug message...");
 }
