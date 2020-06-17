@@ -36,3 +36,4 @@ Solutions de la plateforme CodinGame
 
 ### Easy
 -  [x] Unit Fractions
+-  [ ] Rectangle Partition
