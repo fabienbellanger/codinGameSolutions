@@ -37,4 +37,4 @@ Solutions de la plateforme CodinGame
 ### Easy
 -  [x] Unit Fractions
 -  [x] Rectangle Partition
--  [ ] Van Eck's sequence
+-  [x] Van Eck's sequence
