@@ -38,4 +38,4 @@ Solutions de la plateforme CodinGame
 -  [x] Unit Fractions
 -  [x] Rectangle Partition
 -  [x] Van Eck's sequence
--  [ ] Sudoku Validator
+-  [x] Sudoku Validator

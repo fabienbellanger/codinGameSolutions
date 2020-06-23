@@ -4,9 +4,12 @@ macro_rules! parse_input {
     ($x:expr, $t:ident) => ($x.trim().parse::<$t>().unwrap())
 }
 
-const ORDERED_ROW: [usize; 9] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const SIZE: usize = 3;
+const LENGTH: usize = SIZE * SIZE;
+const ORDERED_ROW: [usize; LENGTH] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-fn check_line(line: &Vec<usize>) -> bool {
+// Checks if an array is valid
+fn check_array(line: &Vec<usize>) -> bool {
     let v = ORDERED_ROW.to_vec();
     let mut k = line.clone();
     k.sort();
@@ -17,28 +20,24 @@ fn main() {
     let mut all: Vec<usize> = Vec::with_capacity(81);
     let mut ok = true;
 
-    for _ in 0..9 as usize {
+    for _ in 0..LENGTH as usize {
         let mut inputs = String::new();
         io::stdin().read_line(&mut inputs).unwrap();
 
         for j in inputs.split_whitespace() {
-            let l = parse_input!(j, usize);
-            all.push(l);
+            all.push(parse_input!(j, usize));
         }
     }
-
-    eprintln!("all={:?}", all);
     
     let mut ok = true;
-    for i in 0..9 {
+    for i in 0..LENGTH {
         // Rows
         // ----
         let mut row: Vec<usize> = Vec::with_capacity(9);
-        for j in 0..9 {
-            row.push(all[9 * i + j]);
+        for j in 0..LENGTH {
+            row.push(all[LENGTH * i + j]);
         }
-        // eprintln!("row={:?}", row);
-        if !check_line(&row) {
+        if !check_array(&row) {
             ok = false;
             break;
         }
@@ -46,21 +45,28 @@ fn main() {
         // Columns
         // -------
         let mut col: Vec<usize> = Vec::with_capacity(9);
-        for j in 0..9 {
-            col.push(all[i + 9 * j]);
+        for j in 0..LENGTH {
+            col.push(all[i + LENGTH * j]);
         }
-        // eprintln!("col={:?}", col);
-        if !check_line(&col) {
+        if !check_array(&col) {
             ok = false;
             break;
         }
 
-        // Squares
-        // -------
-        let mut square: Vec<usize> = Vec::with_capacity(9);
-        // for j in 0..9 {
-        //     square.push(all[i + 9 * j]);
-        // }
+        // Sub grids
+        // ---------
+        let mut sub_grid: Vec<usize> = Vec::with_capacity(9);
+        let point = SIZE*(LENGTH*(i/SIZE) + i%SIZE);
+        for j in 0..SIZE {
+            for k in 0..SIZE {
+                let index = point + LENGTH*j + k;
+                sub_grid.push(all[index]);
+            }
+        }
+        if !check_array(&sub_grid) {
+            ok = false;
+            break;
+        }
     };
 
     if ok {
