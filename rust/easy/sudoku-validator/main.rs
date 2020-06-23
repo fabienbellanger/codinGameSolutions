@@ -18,7 +18,6 @@ fn check_array(line: &Vec<usize>) -> bool {
 
 fn main() {
     let mut all: Vec<usize> = Vec::with_capacity(81);
-    let mut ok = true;
 
     for _ in 0..LENGTH as usize {
         let mut inputs = String::new();
@@ -69,9 +68,5 @@ fn main() {
         }
     };
 
-    if ok {
-        println!("true");
-    } else {
-        println!("false");
-    }
+    println!("{}", ok);
 }
