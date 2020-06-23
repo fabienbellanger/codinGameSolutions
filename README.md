@@ -39,3 +39,6 @@ Solutions de la plateforme CodinGame
 -  [x] Rectangle Partition
 -  [x] Van Eck's sequence
 -  [x] Sudoku Validator
+
+### Medium
+-  [x] There is no Spoon - Episode 1
