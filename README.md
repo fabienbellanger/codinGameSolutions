@@ -44,3 +44,4 @@ Solutions de la plateforme CodinGame
 -  [x] There is no Spoon - Episode 1
 -  [x] Skynet Revolution - Episode 1
 -  [x] Don't Panic - Episode 1
+-  [ ] Pertes en bourse
