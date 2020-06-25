@@ -62,8 +62,6 @@ fn main() {
         }
 
         if let Some(gateway) = near_gateway {
-            eprintln!("valid gateway={:?}", gateway);
-
             let mut ok = false;
             for link in &mut links {
                 if link.2 && ((link.0 == si && link.1 == *gateway.0) || (link.1 == si && link.0 == *gateway.0)) {
@@ -77,7 +75,6 @@ fn main() {
             if !ok {
                 for link in &mut links {
                     if link.2 && (link.0 == si || link.1 == si) {
-                        eprintln!("link 2={:?}", link);
                         println!("{} {}", link.0, link.1);
                         link.2 = false;
                         break;
