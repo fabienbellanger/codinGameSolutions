@@ -24,13 +24,22 @@ fn main() {
 
         j += 1;
     }
-    eprintln!("values={:?}, diff={:?}", values, diff);
 
+    let mut losses: Vec<i32> = Vec::new();
+    losses.push(diff[0]);
+    let mut loss = 0i32;
     for i in 1..n-1 {
-        eprintln!("diff={:?}", diff[i]);
-    }
+        let v: i32 = if losses[i - 1] >= 0 {
+            diff[i]
+        } else {
+            diff[i] + losses[i - 1]
+        };
 
-    let loss = 0i32;
+        losses.push(v);
+        if v < loss {
+            loss = v;
+        }
+    }
     
     println!("{}", loss);
 }
