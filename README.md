@@ -45,3 +45,4 @@ Solutions de la plateforme CodinGame
 -  [x] Skynet Revolution - Episode 1
 -  [x] Don't Panic - Episode 1
 -  [x] Pertes en bourse
+-  [ ] The Last Crusade - Episode 1
