@@ -47,3 +47,4 @@ Solutions de la plateforme CodinGame
 -  [x] Pertes en bourse
 -  [x] The Last Crusade - Episode 1
 -  [x] Suite de Conway
+-  [ ] La Bataille
