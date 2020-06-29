@@ -46,3 +46,4 @@ Solutions de la plateforme CodinGame
 -  [x] Don't Panic - Episode 1
 -  [x] Pertes en bourse
 -  [x] The Last Crusade - Episode 1
+-  [x] Suite de Conway
